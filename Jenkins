@@ -4,7 +4,7 @@ pipeline {
         stage('Deploy CloudFormation Stack') {
             steps {
                 sh '''
-                "aws cloudformation deploy \ 
+                 aws cloudformation deploy \ 
                    --stack-name ecinstance10 \
                    --template-file create_ec2.yml \
                    --capabilities CAPABILITY_NAMED_IAM \ 
