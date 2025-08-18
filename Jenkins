@@ -9,6 +9,7 @@ pipeline {
                    --template-file create_ec2.yml \
                    --capabilities CAPABILITY_NAMED_IAM \ 
                    --tags key=Name,Value=125asp01 key=costid,Value=125asp02
+                   --region 'us-east-1' 
                 '''   
             } 
         }
