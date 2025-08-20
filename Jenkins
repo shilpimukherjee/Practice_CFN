@@ -1,18 +1,23 @@
-pipeline {
-    agent any
+pipeline { 
+    agent {
+        docker {
+            image 'amazon/aws-cli'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+
     stages {
         stage('Deploy CloudFormation Stack') {
             steps {
                 sh '''
-                aws cloudformation deploy \
-                   --stack-name ecinstance10 \
-                   --template-file create_ec2.yml \
-                   --capabilities CAPABILITY_NAMED_IAM \
-                   --tags key=Name,Value=125asp01 key=costid,Value=125asp02 \
-                   --region 'us-east-1'
+                  aws cloudformation deploy \
+                    --stack-name ecinstance10 \
+                    --template-file create_ec2.yml \
+                    --capabilities CAPABILITY_NAMED_IAM \
+                    --tags key=Name,Value=125asp01 key=costid,Value=125asp02 \
+                    --region us-east-1
                 '''   
             } 
         }
     }
 }
-
