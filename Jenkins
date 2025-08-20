@@ -1,36 +1,18 @@
 pipeline {
     agent any
-
-    options {
-        skipDefaultCheckout(true)   // disable auto-checkout
-    }
-
     stages {
-        stage('Checkout Code') {
-            steps {
-                script {
-                    // Mark workspace as safe for git
-                    sh 'git config --global --add safe.directory "$WORKSPACE"'
-
-                    // Now perform checkout
-                    checkout scm
-                }
-            }
-        }
-
         stage('Deploy CloudFormation Stack') {
             steps {
                 sh '''
-                  aws cloudformation deploy \
-                    --stack-name ecinstance10 \
-                    --template-file create_ec2.yml \
-                    --capabilities CAPABILITY_NAMED_IAM \
-                    --tags key=Name,Value=125asp01 key=costid,Value=125asp02 \
-                    --region us-east-1
-                '''
-            }
+                aws cloudformation deploy \
+                   --stack-name ecinstance10 \
+                   --template-file create_ec2.yml \
+                   --capabilities CAPABILITY_NAMED_IAM \
+                   --tags key=Name,Value=125asp01 key=costid,Value=125asp02 \
+                   --region 'us-east-1'
+                '''   
+            } 
         }
     }
 }
-
 
