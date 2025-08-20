@@ -1,14 +1,10 @@
 pipeline { 
-    agent {
-        docker {
-            image 'amazon/aws-cli'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any 
 
     stages {
         stage('Deploy CloudFormation Stack') {
             steps {
+              withAWS(region: 'us-east-1', credentials: 'aws-jenkins-creds') {   
                 sh '''
                   aws cloudformation deploy \
                     --stack-name ecinstance10 \
@@ -16,7 +12,9 @@ pipeline {
                     --capabilities CAPABILITY_NAMED_IAM \
                     --tags key=Name,Value=125asp01 key=costid,Value=125asp02 \
                     --region us-east-1
-                '''   
+                    --no-cli-pager
+                '''  
+               }
             } 
         }
     }
