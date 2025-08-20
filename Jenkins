@@ -1,12 +1,11 @@
-pipeline { 
-    agent {
-        docker {
-            image 'amazon/aws-cli'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
-
+pipeline {
+    agent any
     stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/shilpimukherjee/Practice_CFN.git'
+            }
+        }
         stage('Deploy CloudFormation Stack') {
             steps {
                 sh '''
@@ -16,8 +15,9 @@ pipeline {
                     --capabilities CAPABILITY_NAMED_IAM \
                     --tags key=Name,Value=125asp01 key=costid,Value=125asp02 \
                     --region us-east-1
-                '''   
-            } 
+                '''
+            }
         }
     }
 }
+
