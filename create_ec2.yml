@@ -18,10 +18,10 @@ Parameters:
     Type: AWS::SSM::Parameter::Value<String>
   SubnetID:
     Description: Subnet Id
-    Type: AWS::SSM::Parameter::Value<AWS:EC2:Subnet::Id>
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Subnet::Id>
   ImageID:
     Description: App EC2 image Id
-    Type: AWS::SSM::Parameter::Value<AWS:EC2:Image::Id>
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
 Resources:
    EC2Instance1:
      Type: AWS::EC2::Instance
