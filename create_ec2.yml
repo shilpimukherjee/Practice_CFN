@@ -8,6 +8,7 @@ Parameters:
   VpcId:
     Description: VPC ID for Resources
     Type: AWS::SSM::Parameter::Value<AWS::EC2::VPC::Id>
+    Default: vpc-0ad6f0bbb0bda08e5
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
     Default: my-N-virginia-kp1.pem
