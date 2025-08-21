@@ -20,6 +20,7 @@ Parameters:
   SubnetID:
     Description: Subnet Id
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Subnet::Id>
+    Default: SubnetID
   ImageID:
     Description: App EC2 image Id
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
