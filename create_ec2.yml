@@ -17,6 +17,7 @@ Parameters:
   InstanceType:
     Description : App EC2 instance type
     Type: AWS::SSM::Parameter::Value<String>
+    Default: InstanceType
   SubnetID:
     Description: Subnet Id
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Subnet::Id>
