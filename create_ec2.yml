@@ -23,6 +23,7 @@ Parameters:
   ImageID:
     Description: App EC2 image Id
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: ImageID
 Resources:
    EC2Instance1:
      Type: AWS::EC2::Instance
