@@ -7,10 +7,10 @@ pipeline {
               withAWS(region: 'us-east-1', credentials: 'aws-jenkins-creds') {   
                 sh '''
                   aws cloudformation deploy \
-                    --stack-name ecinstance10 \
+                    --stack-name ecinstance11 \
                     --template-file create_ec2.yml \
                     --capabilities CAPABILITY_NAMED_IAM \
-                    --tags key=Name,Value=128asp01 key=costid,Value=128asp02 \
+                    --tags key=Name,Value=132asp01 key=costid,Value=132asp02 \
                     --region us-east-1 \
                     --no-cli-pager
                 '''  
