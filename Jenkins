@@ -10,7 +10,7 @@ pipeline {
                     --stack-name ecinstance10 \
                     --template-file create_ec2.yml \
                     --capabilities CAPABILITY_NAMED_IAM \
-                    --tags key=Name,Value=127asp01 key=costid,Value=127asp02 \
+                    --tags key=Name,Value=128asp01 key=costid,Value=128asp02 \
                     --region us-east-1 \
                     --no-cli-pager
                 '''  
